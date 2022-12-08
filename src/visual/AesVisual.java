@@ -5,15 +5,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JEditorPane;
+import javax.swing.JFileChooser;
 import javax.swing.JTextArea;
 import javax.swing.ButtonGroup;
 import javax.swing.JScrollBar;
 import javax.swing.JTextPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import java.awt.TextArea;
+import java.awt.Button;
 
 public class AesVisual {
 
@@ -53,10 +60,23 @@ public class AesVisual {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		
 		JButton btnLoadFile = new JButton("Load File");
 		btnLoadFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Press Load File...");
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT", "txt");
+				final JFileChooser fc = new JFileChooser();
+				fc.setFileFilter(filter);
+				int seleccion = fc.showOpenDialog(btnLoadFile);
+				System.out.println(seleccion);
+				if (seleccion == JFileChooser.APPROVE_OPTION){
+				   File fichero = fc.getSelectedFile();
+				   // Aquí debemos abrir y leer el fichero.
+				   System.out.println(fichero.getAbsolutePath());
+				  
+				}
+				
 			}
 		});
 		btnLoadFile.setBounds(22, 32, 89, 23);
@@ -95,17 +115,13 @@ public class AesVisual {
 		lblNewLabel.setBounds(22, 140, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(217, 32, 185, 146);
-		frame.getContentPane().add(textArea);
-		
 		JButton btnExport2File = new JButton("Export");
 		btnExport2File.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Press Export...");
 			}
 		});
-		btnExport2File.setBounds(270, 189, 89, 23);
+		btnExport2File.setBounds(191, 189, 89, 23);
 		frame.getContentPane().add(btnExport2File);
 		
 		JButton btnGo = new JButton("Go");
@@ -116,5 +132,18 @@ public class AesVisual {
 		});
 		btnGo.setBounds(58, 189, 89, 23);
 		frame.getContentPane().add(btnGo);
+		
+		TextArea textArea = new TextArea();
+		textArea.setBounds(191, 32, 221, 146);
+		frame.getContentPane().add(textArea);
+		
+		JButton btnClean = new JButton("Clean");
+		btnClean.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Press Clean...");
+			}
+		});
+		btnClean.setBounds(323, 189, 89, 23);
+		frame.getContentPane().add(btnClean);
 	}
 }
