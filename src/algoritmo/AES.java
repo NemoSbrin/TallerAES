@@ -40,15 +40,15 @@ public class AES {
     }
 	
 	public String cifrado(String texto) {
-		System.out.println("---Cifrando...");
+		//System.out.println("---Cifrando...");
 		String aux = "";
 		//Key aesKey = new SecretKeySpec(getAtributo1().getBytes(), "AES");
 		Key aesKey = null;
 		try {
 			aesKey = this.crearClave(getAtributo1());
-			System.out.println("-- Decifrando - Mensaje Cifrado "+texto);
-			System.out.println("-- Cifrando - Llave Privada "+aesKey);
-			System.out.println("-- Cifrando - Llave Pública "+getAtributo1());
+			//System.out.println("-- Decifrando - Mensaje Cifrado "+texto);
+			//System.out.println("-- Cifrando - Llave Privada "+aesKey);
+			//System.out.println("-- Cifrando - Llave Pública "+getAtributo1());
 			try {
 				Cipher cipher = Cipher.getInstance("AES");
 				cipher.init(Cipher.ENCRYPT_MODE, aesKey);
@@ -70,7 +70,7 @@ public class AES {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			System.out.println("---Cifrado Completo...");
+			//System.out.println("---Cifrado Completo...");
 			return aux;
 			
 		} catch (UnsupportedEncodingException | NoSuchAlgorithmException e1) {
@@ -81,15 +81,15 @@ public class AES {
 	}
 	
 	public String decifrado(String textocifrado) {
-		System.out.println("---Decifrando...");
+		//System.out.println("---Decifrando...");
 		String aux = "";
 		byte [] encriptedBytes = java.util.Base64.getDecoder().decode(textocifrado.replace("\n", ""));
 		Key aesKey = null;
 		try {
 			aesKey = this.crearClave(getAtributo1());
-			System.out.println("-- Decifrando - Mensaje Cifrado "+textocifrado);
-			System.out.println("-- Decifrando - Llave Privada   "+aesKey);
-			System.out.println("-- Decifrando - Llave Pública   "+getAtributo1());
+			//System.out.println("-- Decifrando - Mensaje Cifrado "+textocifrado);
+			//System.out.println("-- Decifrando - Llave Privada   "+aesKey);
+			//System.out.println("-- Decifrando - Llave Pública   "+getAtributo1());
 
 			try {
 				Cipher cipher = Cipher.getInstance("AES");
@@ -111,7 +111,7 @@ public class AES {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			System.out.println("-- Decifrado Completo...");
+			//System.out.println("-- Decifrado Completo...");
 			return aux;
 		} catch (UnsupportedEncodingException | NoSuchAlgorithmException e1) {
 			// TODO Auto-generated catch block

@@ -40,11 +40,11 @@ public class FileUtilities {
 			for (String linea : contenido) {
 				//escribe los datos en el archivo
 				bfwriter.write(linea+"\n");
-				System.out.println("linea: "+linea);
+				////System.out.println("linea: "+linea);
 			}
 			//cierra el buffer intermedio
 			bfwriter.close();
-			System.out.println("Archivo creado satisfactoriamente..");
+			//System.out.println("Archivo creado satisfactoriamente..");
 			return true;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -60,18 +60,18 @@ public class FileUtilities {
 			}
 		}
 	}
-
+/*
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String ruta = "C:\\Users\\Kevin Palacios\\Documents\\contraseña.txt";
 		String ruta2 = "C:\\Users\\Kevin Palacios\\Documents\\mensaje.txt";
 		FileUtilities fu = new FileUtilities();
 		String a = fu.muestraContenido(ruta);
-		System.out.println(a);
+		//System.out.println(a);
 		
 		ArrayList<String> contenido = new ArrayList<String>();
 		contenido.add("la vida es hermosa");
 		fu.crearArchivo(ruta2, contenido);
 	}
-
+*/
 }

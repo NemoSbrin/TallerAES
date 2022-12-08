@@ -93,16 +93,16 @@ public class AesVisual {
 		JButton btnLoadFile = new JButton("Load File");
 		btnLoadFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Press Load File...");
+				//System.out.println("Press Load File...");
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT", "txt");
 				final JFileChooser fc = new JFileChooser();
 				fc.setFileFilter(filter);
 				int seleccion = fc.showOpenDialog(btnLoadFile);
-				System.out.println("Press Load File...seleccion: "+seleccion);
+				//System.out.println("Press Load File...seleccion: "+seleccion);
 				if (seleccion == JFileChooser.APPROVE_OPTION) {
 					File fichero = fc.getSelectedFile();
 					// Aquí debemos abrir y leer el fichero.
-					System.out.println("Press Load File...path: "+fichero.getAbsolutePath());
+					//System.out.println("Press Load File...path: "+fichero.getAbsolutePath());
 					contenido = tools.muestraContenido(fichero.getAbsolutePath());
 					lblStatus.setText(" OK");
 					lblStatus.setOpaque(true);
@@ -117,11 +117,11 @@ public class AesVisual {
 		JRadioButton rdbtnCifrar = new JRadioButton("Cifrar");
 		rdbtnCifrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Press Cifrar...");
+				//System.out.println("Press Cifrar...");
 				esCifrado = true;
-				System.out.println("Press Cifrar...esCifrado:" + esCifrado);
+				//System.out.println("Press Cifrar...esCifrado:" + esCifrado);
 				esDescifrado = false;
-				System.out.println("Press Cifrar...esDescifrado:" + esDescifrado);
+				//System.out.println("Press Cifrar...esDescifrado:" + esDescifrado);
 
 			}
 		});
@@ -132,11 +132,11 @@ public class AesVisual {
 		JRadioButton rdbtnDecifrar = new JRadioButton("Decifrar");
 		rdbtnDecifrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Press Decifrar...");
+				//System.out.println("Press Decifrar...");
 				esDescifrado = true;
-				System.out.println("Press Decifrar...esDescifrado:" + esDescifrado);
+				//System.out.println("Press Decifrar...esDescifrado:" + esDescifrado);
 				esCifrado = false;
-				System.out.println("Press Decifrar...esCifrado:" + esCifrado);
+				//System.out.println("Press Decifrar...esCifrado:" + esCifrado);
 			}
 		});
 		buttonGroup.add(rdbtnDecifrar);
@@ -146,18 +146,18 @@ public class AesVisual {
 		JButton btnExport2File = new JButton("Export");
 		btnExport2File.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Press Export...");
+				//System.out.println("Press Export...");
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT", "txt");
 				final JFileChooser fc = new JFileChooser();
 				ArrayList<String> pantalla = new ArrayList<String>();
 				fc.setFileFilter(filter);
 				int seleccion = fc.showSaveDialog(btnLoadFile);
 				boolean respuesta = false;
-				System.out.println("Press Load File...seleccion: "+seleccion);
+				//System.out.println("Press Load File...seleccion: "+seleccion);
 				if (seleccion == JFileChooser.APPROVE_OPTION) {
 					File fichero = fc.getSelectedFile();
 					// Aquí debemos abrir y leer el fichero.
-					System.out.println("Press Export...path: "+fichero.getAbsolutePath()+".txt");
+					//System.out.println("Press Export...path: "+fichero.getAbsolutePath()+".txt");
 					pantalla.add(textArea.getText());
 					respuesta = tools.crearArchivo(fichero.getAbsolutePath()+".txt", pantalla);
 				}
@@ -169,11 +169,11 @@ public class AesVisual {
 		JButton btnGo = new JButton("Go");
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Press Go...");
+				//System.out.println("Press Go...");
 				String Key = textKey.getText();
-				System.out.println("Press Go...Key:" + Key);
-				System.out.println("Press Go...esCifrado:" + esCifrado);
-				System.out.println("Press Go...esDescifrado:" + esDescifrado);
+				//System.out.println("Press Go...Key:" + Key);
+				//System.out.println("Press Go...esCifrado:" + esCifrado);
+				//System.out.println("Press Go...esDescifrado:" + esDescifrado);
 				if (contenido.length() == 0) {
 					JOptionPane.showMessageDialog(null, "No ha seleccionado un archivo", "Archivo vacío",
 							JOptionPane.WARNING_MESSAGE);
@@ -184,7 +184,7 @@ public class AesVisual {
 					JOptionPane.showMessageDialog(null, "La llave está vacia", "Llave vacía",
 							JOptionPane.WARNING_MESSAGE);
 				} else {
-					System.out.println("Press Go...habilitar Export: true");
+					//System.out.println("Press Go...habilitar Export: true");
 					btnExport2File.setEnabled(true);
 					aes.KEY(Key);
 					if (esCifrado)
@@ -202,7 +202,7 @@ public class AesVisual {
 		JButton btnClean = new JButton("Clear");
 		btnClean.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Press Clean...");
+				//System.out.println("Press Clean...");
 				contenido = "";
 				lblStatus.setOpaque(false);
 				lblStatus.setForeground(Color.BLACK);
